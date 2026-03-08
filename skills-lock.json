@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "biome": {
+      "source": "bobmatnyc/claude-mpm-skills",
+      "sourceType": "github",
+      "computedHash": "a2ab4299f4551f45529a0063a5fb05e2ea353cb10983c3111c52969d40b4ece6"
+    },
     "shadcn": {
       "source": "shadcn/ui",
       "sourceType": "github",
