@@ -1,10 +1,16 @@
-export function Logo() {
+import { cn } from "../lib/utils";
+
+export function LogoIcon({
+  className,
+  ...props
+}: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       viewBox="0 0 50.271 50.271"
-      className="size-8 text-primary"
+      className={cn("size-8 text-primary", className)}
+      {...props}
     >
       <title>BioBoost Logo</title>
                       
@@ -24,5 +30,32 @@ export function Logo() {
       </g>
                   
     </svg>
-  )
+  );
+}
+
+export function LogoBrand({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) {
+  return (
+    <span
+      className={cn("text-primary font-bold text-2xl", className)}
+      {...props}
+    >
+      BioBoost
+    </span>
+  );
+}
+
+export function Logo({ children }: { children?: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2">
+      {children ?? (
+        <>
+          <LogoIcon />
+          <LogoBrand />
+        </>
+      )}
+    </div>
+  );
 }
