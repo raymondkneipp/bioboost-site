@@ -4,14 +4,16 @@ import {
   NewTwitterIcon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { LogoBrand } from "@workspace/ui/components/logo"
+import { Logo, LogoBrand } from "@workspace/ui/components/logo"
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="container py-12 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-center md:items-start gap-2">
-          <LogoBrand />
+          <Logo as="a" href="http://localhost:3000">
+            <LogoBrand />
+          </Logo>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} BioBoost. All rights reserved.
           </p>
