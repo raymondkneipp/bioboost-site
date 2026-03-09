@@ -1,4 +1,4 @@
-import { cn } from "../lib/utils";
+import { cn } from "../lib/utils"
 
 export function LogoIcon({
   className,
@@ -30,7 +30,7 @@ export function LogoIcon({
       </g>
                   
     </svg>
-  );
+  )
 }
 
 export function LogoBrand({
@@ -39,12 +39,15 @@ export function LogoBrand({
 }: React.HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
-      className={cn("text-primary font-bold text-2xl", className)}
+      className={cn(
+        "font-black text-2xl capitalize uppercase italic tracking-tighter text-primary",
+        className,
+      )}
       {...props}
     >
-      BioBoost
+      Bio<span className="text-foreground">Boost</span>
     </span>
-  );
+  )
 }
 
 export function Logo({ children }: { children?: React.ReactNode }) {
@@ -57,5 +60,5 @@ export function Logo({ children }: { children?: React.ReactNode }) {
         </>
       )}
     </div>
-  );
+  )
 }
