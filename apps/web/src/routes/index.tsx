@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({ component: App })
 
 function App() {
   return (
-    <div className="flex min-h-svh p-6">
+    <div className="container flex min-h-svh py-6">
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>
           <Logo />
@@ -14,6 +14,13 @@ function App() {
           <p>You may now add components and start building.</p>
           <p>We&apos;ve already added the button component for you.</p>
           <Button className="mt-2">Button</Button>
+
+          <Button variant="link">
+            <a href="http://localhost:3001">Supplements</a>
+          </Button>
+          <Button variant="link">
+            <a href="http://localhost:3002">Breathe</a>
+          </Button>
         </div>
       </div>
     </div>
