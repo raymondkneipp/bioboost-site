@@ -38,6 +38,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@workspace/ui/components/sidebar"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@workspace/ui/components/tooltip"
 import { allCalculators } from "content-collections"
 import Fuse from "fuse.js"
 import * as React from "react"
@@ -115,6 +121,7 @@ export function AppSidebar() {
   )
 
   return (
+    <TooltipProvider>
     <Sidebar variant="sidebar">
       <SidebarHeader>
         <SidebarMenu>
@@ -186,27 +193,54 @@ export function AppSidebar() {
                           {item.label}
 
                           {item.status === "in-progress" && (
-                            <HugeiconsIcon
-                              icon={ConstructionIcon}
-                              className="size-4 text-yellow-700 dark:text-yellow-400 ml-auto"
-                              aria-label="not-started"
-                            />
+                            <Tooltip>
+                              <TooltipTrigger
+                                render={
+                                  <HugeiconsIcon
+                                    icon={ConstructionIcon}
+                                    className="size-4 text-yellow-700 dark:text-yellow-400 ml-auto"
+                                    aria-label="In progress"
+                                  />
+                                }
+                              />
+                              <TooltipContent side="right">
+                                In progress
+                              </TooltipContent>
+                            </Tooltip>
                           )}
 
                           {item.status === "not-started" && (
-                            <HugeiconsIcon
-                              icon={Alert02Icon}
-                              className="size-4 text-red-700 dark:text-red-400 ml-auto"
-                              aria-label="not-started"
-                            />
+                            <Tooltip>
+                              <TooltipTrigger
+                                render={
+                                  <HugeiconsIcon
+                                    icon={Alert02Icon}
+                                    className="size-4 text-red-700 dark:text-red-400 ml-auto"
+                                    aria-label="Not started"
+                                  />
+                                }
+                              />
+                              <TooltipContent side="right">
+                                Not started
+                              </TooltipContent>
+                            </Tooltip>
                           )}
 
                           {item.status === "new" && (
-                            <HugeiconsIcon
-                              icon={SparklesIcon}
-                              className="size-4 text-primary ml-auto"
-                              aria-label="not-started"
-                            />
+                            <Tooltip>
+                              <TooltipTrigger
+                                render={
+                                  <HugeiconsIcon
+                                    icon={SparklesIcon}
+                                    className="size-4 text-primary ml-auto"
+                                    aria-label="New"
+                                  />
+                                }
+                              />
+                              <TooltipContent side="right">
+                                New
+                              </TooltipContent>
+                            </Tooltip>
                           )}
                         </Link>
                       }
@@ -221,5 +255,6 @@ export function AppSidebar() {
 
       <SidebarFooter />
     </Sidebar>
+    </TooltipProvider>
   )
 }

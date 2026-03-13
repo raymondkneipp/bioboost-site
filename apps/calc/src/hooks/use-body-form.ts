@@ -1,6 +1,7 @@
 import { formOptions, useForm } from "@tanstack/react-form"
 import { zodValidator } from "@tanstack/zod-form-adapter"
-import { ftInToCm, lbToKg } from "@/lib/units"
+import { poundsToKg } from "@/units/mass"
+import { feetInchesToCm } from "@/units/length"
 
 type EmptyNumber = "" | number
 
@@ -64,8 +65,8 @@ export function useImperialWeightHeightForm(
   return useForm({
     ...imperialWeightHeightFormOptions,
     onSubmit: ({ value }) => {
-      const weightKg = lbToKg(numVal(value.weight))
-      const heightCm = ftInToCm(numVal(value.heightFt), numVal(value.heightIn) || 0)
+      const weightKg = poundsToKg(numVal(value.weight))
+      const heightCm = feetInchesToCm(numVal(value.heightFt), numVal(value.heightIn) || 0)
       onSubmit(weightKg, heightCm)
     },
   })

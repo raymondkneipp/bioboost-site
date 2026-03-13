@@ -15,47 +15,34 @@ import {
   useImperialWeightHeightForm,
   useMetricWeightHeightForm,
 } from "@/hooks/use-body-form"
+import { calculateBMI } from "@/calculators/bmi/bmi"
+import type { BMICategory } from "@/calculators/bmi/types"
+import { cmToMeters } from "@/units/length"
 
-interface BmiResult {
+interface BmiDisplay {
   bmi: number
-  category: string
+  label: string
   variant: "default" | "secondary" | "destructive" | "outline"
 }
 
-function calcBmi(weightKg: number, heightCm: number): BmiResult {
-  const heightM = heightCm / 100
-  const bmi = weightKg / (heightM * heightM)
-  const rounded = Math.round(bmi * 10) / 10
-
-  let category: string
-  let variant: BmiResult["variant"]
-
-  if (bmi < 18.5) {
-    category = "Underweight"
-    variant = "secondary"
-  } else if (bmi < 25) {
-    category = "Normal"
-    variant = "default"
-  } else if (bmi < 30) {
-    category = "Overweight"
-    variant = "outline"
-  } else if (bmi < 35) {
-    category = "Obese Class I"
-    variant = "destructive"
-  } else if (bmi < 40) {
-    category = "Obese Class II"
-    variant = "destructive"
-  } else {
-    category = "Obese Class III"
-    variant = "destructive"
-  }
-
-  return { bmi: rounded, category, variant }
+const categoryDisplay: Record<BMICategory, { label: string; variant: BmiDisplay["variant"] }> = {
+  Underweight: { label: "Underweight", variant: "secondary" },
+  Normal: { label: "Normal", variant: "default" },
+  Overweight: { label: "Overweight", variant: "outline" },
+  "Obese Class I": { label: "Obese Class I", variant: "destructive" },
+  "Obese Class II": { label: "Obese Class II", variant: "destructive" },
+  "Obese Class III": { label: "Obese Class III", variant: "destructive" },
 }
 
-function MetricForm({ onResult }: { onResult: (r: BmiResult) => void }) {
+function toBmiDisplay(weightKg: number, heightCm: number): BmiDisplay {
+  const { bmi, category } = calculateBMI({ weightKg, heightM: cmToMeters(heightCm) })
+  const { label, variant } = categoryDisplay[category]
+  return { bmi, label, variant }
+}
+
+function MetricForm({ onResult }: { onResult: (r: BmiDisplay) => void }) {
   const form = useMetricWeightHeightForm((weightKg, heightCm) => {
-    onResult(calcBmi(weightKg, heightCm))
+    onResult(toBmiDisplay(weightKg, heightCm))
   })
 
   return (
@@ -82,9 +69,9 @@ function MetricForm({ onResult }: { onResult: (r: BmiResult) => void }) {
   )
 }
 
-function ImperialForm({ onResult }: { onResult: (r: BmiResult) => void }) {
+function ImperialForm({ onResult }: { onResult: (r: BmiDisplay) => void }) {
   const form = useImperialWeightHeightForm((weightKg, heightCm) => {
-    onResult(calcBmi(weightKg, heightCm))
+    onResult(toBmiDisplay(weightKg, heightCm))
   })
 
   return (
@@ -119,7 +106,7 @@ function ImperialForm({ onResult }: { onResult: (r: BmiResult) => void }) {
 
 export function BmiCalculator() {
   const { units } = useSettings()
-  const [result, setResult] = React.useState<BmiResult | null>(null)
+  const [result, setResult] = React.useState<BmiDisplay | null>(null)
 
   React.useEffect(() => {
     setResult(null)
@@ -136,7 +123,7 @@ export function BmiCalculator() {
       {result && (
         <div className="flex items-center gap-3 rounded-lg bg-muted/50 px-4 py-3">
           <span className="text-2xl font-bold tabular-nums">{result.bmi}</span>
-          <Badge variant={result.variant}>{result.category}</Badge>
+          <Badge variant={result.variant}>{result.label}</Badge>
         </div>
       )}
     </div>
