@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { buttonVariants } from "@workspace/ui/components/button"
+import { Footer } from "@workspace/ui/components/footer"
 import { cn } from "@workspace/ui/lib/utils"
 
 export const Route = createFileRoute("/")({ component: LandingPage })
@@ -141,6 +142,7 @@ function LandingPage() {
           </Link>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

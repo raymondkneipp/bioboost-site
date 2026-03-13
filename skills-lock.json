@@ -11,6 +11,11 @@
       "sourceType": "github",
       "computedHash": "91c02eb706f046fb9d6a061efbb96496e4be751b5b14c283cf82baaa50f3a985"
     },
+    "tanstack-form": {
+      "source": "tanstack-skills/tanstack-skills",
+      "sourceType": "github",
+      "computedHash": "1eb9f9fc43ab2777f586f916b2234c5340ed98f296a98b22c75cbbafcbd29b86"
+    },
     "turborepo": {
       "source": "vercel/turborepo",
       "sourceType": "github",

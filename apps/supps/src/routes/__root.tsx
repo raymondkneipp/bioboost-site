@@ -4,6 +4,7 @@ import {
   Link,
   Scripts,
 } from "@tanstack/react-router"
+import { Footer } from "@workspace/ui/components/footer"
 import {
   Logo,
   LogoBrand,
@@ -11,7 +12,6 @@ import {
   LogoProduct,
 } from "@workspace/ui/components/logo"
 import appCss from "@workspace/ui/globals.css?url"
-import { Footer } from "@/components/footer"
 
 export const Route = createRootRoute({
   head: () => ({
