@@ -37,7 +37,7 @@ const renderCustomizedLabel = ({
   )
 }
 
-export function TagChart({ selectedIds }: { selectedIds?: string[] }) {
+function TagChart({ selectedIds }: { selectedIds?: string[] }) {
   const chartData = useMemo(() => {
     const counts: Record<string, number> = {}
 

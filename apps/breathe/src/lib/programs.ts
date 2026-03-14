@@ -36,11 +36,6 @@ export function getNextStage(stage: BreathingStage): BreathingStage {
   return STAGE_ORDER[(index + 1) % STAGE_ORDER.length]
 }
 
-export function getPreviousStage(stage: BreathingStage): BreathingStage {
-  const index = STAGE_ORDER.indexOf(stage)
-  return STAGE_ORDER[(index - 1 + STAGE_ORDER.length) % STAGE_ORDER.length]
-}
-
 export function getStageDuration(
   stages: StageTimings,
   stage: BreathingStage,

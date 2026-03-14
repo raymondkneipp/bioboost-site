@@ -10,7 +10,7 @@ function getAudio(): HTMLAudioElement {
   return audioInstance
 }
 
-export async function triggerSoundFeedback(): Promise<void> {
+async function triggerSoundFeedback(): Promise<void> {
   try {
     const audio = getAudio()
     audio.currentTime = 0
@@ -20,7 +20,7 @@ export async function triggerSoundFeedback(): Promise<void> {
   }
 }
 
-export async function triggerHapticFeedback(
+async function triggerHapticFeedback(
   trigger: ((input: string) => Promise<void>) | null,
 ): Promise<void> {
   if (trigger) {

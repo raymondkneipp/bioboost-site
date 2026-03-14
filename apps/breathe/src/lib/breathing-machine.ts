@@ -2,9 +2,9 @@ import { assign, setup } from "xstate"
 import type { BreathingStage, StageTimings } from "./programs"
 import { STAGE_ORDER } from "./programs"
 
-export type FeedbackMode = "sound" | "haptic" | "none"
+type FeedbackMode = "sound" | "haptic" | "none"
 
-export type BreathingContext = {
+type BreathingContext = {
   programId: string
   programName: string
   stages: StageTimings
@@ -22,7 +22,7 @@ export type BreathingContext = {
   pausedElapsed: number
 }
 
-export type BreathingEvent =
+type BreathingEvent =
   | { type: "START" }
   | { type: "PAUSE" }
   | { type: "RESUME" }
@@ -32,7 +32,7 @@ export type BreathingEvent =
   | { type: "SET_FEEDBACK"; mode: FeedbackMode }
   | { type: "RESET" }
 
-export type BreathingInput = {
+type BreathingInput = {
   programId: string
   programName: string
   stages: StageTimings
@@ -384,37 +384,3 @@ export const breathingMachine = setup({
   },
 })
 
-// Helper to compute display values from the machine snapshot
-export function getSessionDisplayInfo(context: BreathingContext) {
-  const { stages, totalReps, currentRep, currentStage, sessionStartTime } =
-    context
-
-  const cycleTime =
-    stages.inhale + stages.holdIn + stages.exhale + stages.holdOut
-  const totalTime = cycleTime * totalReps
-
-  const elapsed =
-    sessionStartTime > 0
-      ? Math.floor((Date.now() - sessionStartTime) / 1000)
-      : 0
-  const timeRemaining = Math.max(0, totalTime - elapsed)
-
-  const nextStageInfo = getNextStageInfo(
-    currentStage,
-    currentRep,
-    totalReps,
-    stages,
-  )
-
-  return {
-    totalTime,
-    elapsed,
-    timeRemaining,
-    currentStage,
-    currentRep,
-    totalReps,
-    stageDuration: stages[currentStage],
-    nextStage: nextStageInfo.isComplete ? null : nextStageInfo.stage,
-    isLastStage: nextStageInfo.isComplete,
-  }
-}

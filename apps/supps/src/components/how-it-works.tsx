@@ -25,7 +25,7 @@ export function HowItWorks({
   setSelectedSupps: Dispatch<SetStateAction<string[]>>
 }) {
   const [dosages, setDosages] = useState<Record<string, number>>(
-    Object.fromEntries(SUPPLEMENTS.map((s) => [s.id, s.recommendedDose])),
+    () => Object.fromEntries(SUPPLEMENTS.map((s) => [s.id, s.recommendedDose])),
   )
   const [servings, setServings] = useState("30")
   const [flavor, setFlavor] = useState("blue-razz")

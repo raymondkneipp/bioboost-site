@@ -20,7 +20,7 @@ function numVal(v: EmptyNumber): number {
  *   onSubmit: ({ value }) => { ... },
  * })
  */
-export const metricWeightHeightFormOptions = formOptions({
+const metricWeightHeightFormOptions = formOptions({
   validatorAdapter: zodValidator(),
   defaultValues: {
     weight: "" as EmptyNumber,
@@ -31,7 +31,7 @@ export const metricWeightHeightFormOptions = formOptions({
 /**
  * Shared form options for imperial weight + height forms.
  */
-export const imperialWeightHeightFormOptions = formOptions({
+const imperialWeightHeightFormOptions = formOptions({
   validatorAdapter: zodValidator(),
   defaultValues: {
     weight: "" as EmptyNumber,

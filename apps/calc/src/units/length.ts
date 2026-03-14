@@ -4,10 +4,6 @@ export function cmToMeters(cm: number): number {
   return cm / 100
 }
 
-export function metersToCm(m: number): number {
-  return m * 100
-}
-
 export function inchesToCm(inches: number): number {
   return inches * 2.54
 }
