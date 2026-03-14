@@ -81,13 +81,15 @@ export function CaloriesBurnedCalculator() {
   const [activity, setActivity] = React.useState<ActivityLevel>("walking-moderate")
   const [result, setResult] = React.useState<CaloriesBurnedResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   return (
     <div className="not-prose flex flex-col gap-6 rounded-xl border p-6">
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium">Activity</label>
+        <label htmlFor="calories-activity" className="text-sm font-medium">Activity</label>
         <select
+          id="calories-activity"
           className="rounded-md border bg-background px-3 py-2 text-sm"
           value={activity}
           onChange={(e) => { setActivity(e.target.value as ActivityLevel); setResult(null) }}

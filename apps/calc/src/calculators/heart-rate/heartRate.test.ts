@@ -35,6 +35,7 @@ describe("calculateTargetHR", () => {
     // maxHR=187, hrr=122, aerobic 70–80%
     // min=round(122*0.7+65)=round(150.4)=150, max=round(122*0.8+65)=round(162.6)=163
     const { zones } = calculateTargetHR({ age: 30, restingHR: 65 })
+    // biome-ignore lint/style/noNonNullAssertion: find() result is guaranteed in test data
     const aerobic = zones.find((z) => z.zone === "aerobic")!
     expect(aerobic.minBPM).toBe(150)
     expect(aerobic.maxBPM).toBe(163)

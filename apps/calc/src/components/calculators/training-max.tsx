@@ -79,6 +79,7 @@ export function TrainingMaxCalculator() {
   const { units } = useSettings()
   const [result, setResult] = React.useState<ResultState | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   return (

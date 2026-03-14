@@ -89,6 +89,7 @@ export function WeightLossTimelineCalculator() {
   const [deficitMode, setDeficitMode] = React.useState<DeficitMode>("kcal-per-day")
   const [result, setResult] = React.useState<WeightLossTimelineResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   const formProps: FormProps = { deficitMode, onResult: setResult }

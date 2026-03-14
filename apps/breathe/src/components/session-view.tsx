@@ -92,6 +92,7 @@ export function SessionView({
   ])
 
   // Stage elapsed timer
+  // biome-ignore lint/correctness/useExhaustiveDependencies: stage/rep changes should restart the interval
   useEffect(() => {
     if (isPaused || !isBreathing || isCompleted) {
       if (timerRef.current) clearInterval(timerRef.current)

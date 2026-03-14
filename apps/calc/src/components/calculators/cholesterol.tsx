@@ -46,7 +46,7 @@ export function CholesterolCalculator() {
       setResult(calculateCholesterol({
         totalMgDl: numVal(value.total),
         hdlMgDl: numVal(value.hdl),
-        ldlMgDl: isNaN(ldlVal) ? undefined : ldlVal,
+        ldlMgDl: Number.isNaN(ldlVal) ? undefined : ldlVal,
       }))
     },
   })

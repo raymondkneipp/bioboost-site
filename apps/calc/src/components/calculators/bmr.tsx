@@ -172,6 +172,7 @@ export function BmrCalculator() {
   const [formula, setFormula] = React.useState<BMRFormula>("mifflin-st-jeor")
   const [result, setResult] = React.useState<number | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => {
     setResult(null)
   }, [units])

@@ -36,7 +36,7 @@ function MetricForm({ onResult }: FormProps) {
     ...baseFormOptions,
     onSubmit: ({ value }) => {
       const mins = numVal(value.activityMinutes)
-      onResult(calculateHydration({ weightKg: numVal(value.weight), activityMinutes: isNaN(mins) ? 0 : mins }))
+      onResult(calculateHydration({ weightKg: numVal(value.weight), activityMinutes: Number.isNaN(mins) ? 0 : mins }))
     },
   })
   return (
@@ -57,7 +57,7 @@ function ImperialForm({ onResult }: FormProps) {
     ...baseFormOptions,
     onSubmit: ({ value }) => {
       const mins = numVal(value.activityMinutes)
-      onResult(calculateHydration({ weightKg: poundsToKg(numVal(value.weight)), activityMinutes: isNaN(mins) ? 0 : mins }))
+      onResult(calculateHydration({ weightKg: poundsToKg(numVal(value.weight)), activityMinutes: Number.isNaN(mins) ? 0 : mins }))
     },
   })
   return (
@@ -77,6 +77,7 @@ export function HydrationCalculator() {
   const { units } = useSettings()
   const [result, setResult] = React.useState<HydrationResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   return (

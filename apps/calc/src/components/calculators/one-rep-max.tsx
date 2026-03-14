@@ -146,6 +146,7 @@ export function OneRepMaxCalculator() {
   const [formula, setFormula] = React.useState<OneRepMaxFormula>("epley")
   const [resultKg, setResultKg] = React.useState<number | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => {
     setResultKg(null)
   }, [units])

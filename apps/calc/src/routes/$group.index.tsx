@@ -83,6 +83,7 @@ function RouteComponent() {
               className="flex items-center gap-3 rounded-lg border p-3 hover:bg-muted transition-colors"
             >
               <HugeiconsIcon
+              // biome-ignore lint/performance/noDynamicNamespaceImportAccess: icon name from content frontmatter
                 icon={Icons[calc.icon as keyof typeof Icons] as IconSvgElement}
                 className="size-5 shrink-0"
               />

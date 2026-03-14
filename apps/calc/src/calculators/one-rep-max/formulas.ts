@@ -10,5 +10,5 @@ export function brzycki(weightKg: number, reps: number): number {
 
 export function lombardi(weightKg: number, reps: number): number {
   if (reps === 1) return weightKg
-  return weightKg * Math.pow(reps, 0.1)
+  return weightKg * reps ** 0.1
 }

@@ -105,6 +105,7 @@ export function LeanBodyMassCalculator() {
   const [formula, setFormula] = React.useState<LBMFormula>("boer")
   const [result, setResult] = React.useState<number | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   const formProps: FormProps = { sex, formula, onResult: setResult }

@@ -1,4 +1,4 @@
-import * as React from "react"
+import type * as React from "react"
 import type { AnyFieldApi } from "@tanstack/react-form"
 import { Label } from "@workspace/ui/components/label"
 import {

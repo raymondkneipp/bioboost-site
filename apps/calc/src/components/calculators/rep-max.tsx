@@ -62,6 +62,7 @@ export function RepMaxCalculator() {
   const { units } = useSettings()
   const [result, setResult] = React.useState<(RepMaxResult & { isImperial?: boolean }) | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   const isMetric = units === "metric"

@@ -1,9 +1,10 @@
-import * as React from "react"
+import type * as React from "react"
 
 import { cn } from "@workspace/ui/lib/utils"
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (
+    // biome-ignore lint/a11y/noLabelWithoutControl: base label component — consumers add htmlFor
     <label
       data-slot="label"
       className={cn(

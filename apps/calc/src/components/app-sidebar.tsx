@@ -61,6 +61,7 @@ const data: SidebarGroupItem[] = groupOrder
       .filter((calc) => calc.group === group)
       .map((calc) => ({
         label: calc.title,
+        // biome-ignore lint/performance/noDynamicNamespaceImportAccess: icon name from content frontmatter
         icon: (Icons[calc.icon as keyof typeof Icons] as IconSvgElement) ?? BodyWeightIcon,
         to: `/${calc.group}/${calc.slug}`,
       })),

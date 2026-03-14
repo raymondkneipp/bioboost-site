@@ -67,6 +67,7 @@ export function ProteinIntakeCalculator() {
   const [goal, setGoal] = React.useState<ProteinGoal>("active")
   const [result, setResult] = React.useState<ProteinIntakeResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   const formProps: FormProps = { goal, onResult: setResult }

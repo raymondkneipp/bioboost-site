@@ -85,6 +85,7 @@ function App() {
                 >
                   <HugeiconsIcon
                     icon={
+              // biome-ignore lint/performance/noDynamicNamespaceImportAccess: icon name from content frontmatter
                       Icons[calc.icon as keyof typeof Icons] as IconSvgElement
                     }
                     className="size-5 shrink-0"

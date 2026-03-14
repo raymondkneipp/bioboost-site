@@ -12,10 +12,11 @@ import {
   MoonIcon,
   FireIcon,
 } from "@hugeicons/core-free-icons"
+import type { IconSvgElement } from "@hugeicons/react"
 
 export type Tag = {
   label: string
-  icon: any // Using any to avoid IconSvgObject vs ElementType mismatch in the UI components
+  icon: IconSvgElement
   color: string
   darkColor: string
   chartColor: string

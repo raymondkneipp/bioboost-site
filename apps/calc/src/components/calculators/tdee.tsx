@@ -114,6 +114,7 @@ export function TDEECalculator() {
   const [activityLevel, setActivityLevel] = React.useState<ActivityLevel>("moderate")
   const [result, setResult] = React.useState<TDEEResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   const formProps: FormProps = { sex, activityLevel, onResult: setResult }
@@ -133,8 +134,9 @@ export function TDEECalculator() {
         />
 
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium">Activity level</label>
+          <label htmlFor="tdee-activity" className="text-sm font-medium">Activity level</label>
           <select
+            id="tdee-activity"
             className="rounded-md border bg-background px-3 py-2 text-sm"
             value={activityLevel}
             onChange={(e) => { setActivityLevel(e.target.value as ActivityLevel); setResult(null) }}

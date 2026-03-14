@@ -14,6 +14,7 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   tag,
+// biome-ignore lint/suspicious/noExplicitAny: recharts custom label callback has complex generic props
 }: any) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.6
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
@@ -88,6 +89,7 @@ export function TagChart({ selectedIds }: { selectedIds?: string[] }) {
           outerRadius="100%"
         >
           {chartData.map((entry, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: recharts Cell has no natural key
             <Cell key={`cell-${index}`} fill={entry.fill} />
           ))}
         </Pie>

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import type * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@workspace/ui/lib/utils"
@@ -10,6 +10,7 @@ import { Textarea } from "@workspace/ui/components/textarea"
 
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
+    // biome-ignore lint/a11y/useSemanticElements: role=group on div is correct for InputGroup container
     <div
       data-slot="input-group"
       role="group"
@@ -49,6 +50,8 @@ function InputGroupAddon({
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
   return (
+    // biome-ignore lint/a11y/useSemanticElements: role=group on div is correct for input addons
+    // biome-ignore lint/a11y/useKeyWithClickEvents: addon click bubbles to internal input — keyboard handled by the input itself
     <div
       role="group"
       data-slot="input-group-addon"

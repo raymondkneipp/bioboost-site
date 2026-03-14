@@ -108,6 +108,7 @@ export function BmiCalculator() {
   const { units } = useSettings()
   const [result, setResult] = React.useState<BmiDisplay | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => {
     setResult(null)
   }, [units])

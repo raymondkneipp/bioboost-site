@@ -12,6 +12,7 @@ describe("calculateSleepCycle", () => {
   it("6-cycle bedtime is 9h14m before wake time (6*90+14 = 554min)", () => {
     // Wake 7:00 - 554min = 7:00 - 9h14m = 21:46 (9:46 PM)
     const result = calculateSleepCycle({ wakeHour: 7, wakeMinute: 0 })
+    // biome-ignore lint/style/noNonNullAssertion: find() result is guaranteed in test data
     const sixCycle = result.bedtimes.find((b) => b.cycles === 6)!
     expect(sixCycle.hour).toBe(21)
     expect(sixCycle.minute).toBe(46)
@@ -20,6 +21,7 @@ describe("calculateSleepCycle", () => {
   it("3-cycle bedtime is 4h44m before wake time (3*90+14 = 284min)", () => {
     // Wake 7:00 - 284min = 7:00 - 4h44m = 2:16 AM
     const result = calculateSleepCycle({ wakeHour: 7, wakeMinute: 0 })
+    // biome-ignore lint/style/noNonNullAssertion: find() result is guaranteed in test data
     const threeCycle = result.bedtimes.find((b) => b.cycles === 3)!
     expect(threeCycle.hour).toBe(2)
     expect(threeCycle.minute).toBe(16)

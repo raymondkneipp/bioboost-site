@@ -166,6 +166,7 @@ export function BodyFatCalculator() {
   const [sex, setSex] = React.useState<Sex>("male")
   const [result, setResult] = React.useState<BodyFatResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units, sex])
 
   const formProps: FormProps = { sex, onResult: setResult }

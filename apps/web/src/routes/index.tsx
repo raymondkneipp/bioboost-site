@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { Button } from "@workspace/ui/components/button"
 import {
   Card,
   CardContent,
@@ -30,7 +31,7 @@ const products = [
   },
   {
     name: "Calculators",
-    tagline: "100+ health & fitness calculators",
+    tagline: "29+ health & fitness calculators",
     description:
       "BMI, TDEE, macros, heart rate zones, one-rep max, and more—everything you need to track your progress.",
     href: env.VITE_CALC_URL,
@@ -81,21 +82,19 @@ function HomePage() {
               </CardContent>
               <CardFooter>
                 {product.status === "live" ? (
-                  <a
-                    href={product.href}
-                    className="text-sm font-medium text-primary hover:underline underline-offset-4"
-                  >
-                    Open app →
-                  </a>
+                  <Button
+                    variant="link"
+                    className="p-0"
+                    render={<a href={product.href}>Open app →</a>}
+                  />
                 ) : (
                   <span className="text-sm text-muted-foreground">
                     Coming soon —{" "}
-                    <a
-                      href={product.href}
-                      className="underline underline-offset-4 hover:text-foreground transition-colors"
-                    >
-                      join the waitlist
-                    </a>
+                    <Button
+                      variant="link"
+                      className="p-0"
+                      render={<a href={product.href}>join the waitlist</a>}
+                    />
                   </span>
                 )}
               </CardFooter>

@@ -55,6 +55,7 @@ export function CaffeineCalculator() {
   const { units } = useSettings()
   const [result, setResult] = React.useState<CaffeineResult | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resets result when units change
   React.useEffect(() => { setResult(null) }, [units])
 
   return (

@@ -1,4 +1,4 @@
-import * as React from "react"
+import type * as React from "react"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
 
@@ -62,6 +62,8 @@ function BreadcrumbLink({
 
 function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   return (
+      // biome-ignore lint/a11y/useFocusableInteractive: aria-disabled page indicator, intentionally not focusable
+      // biome-ignore lint/a11y/useSemanticElements: role=link on span is the shadcn breadcrumb-page pattern
     <span
       data-slot="breadcrumb-page"
       role="link"

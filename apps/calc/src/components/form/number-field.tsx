@@ -1,4 +1,4 @@
-import * as React from "react"
+import type * as React from "react"
 import type { AnyFieldApi } from "@tanstack/react-form"
 import { InputGroupInput } from "@workspace/ui/components/input-group"
 import { Field } from "./field"
