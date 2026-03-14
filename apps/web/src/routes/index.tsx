@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card"
+import { Footer } from "@workspace/ui/components/footer"
 import { Logo, LogoBrand, LogoIcon } from "@workspace/ui/components/logo"
 import { env } from "@/env"
 
@@ -42,7 +43,7 @@ const products = [
 function HomePage() {
   return (
     <div className="min-h-svh flex flex-col">
-      <header className="container py-8">
+      <header className="container py-4 md:py-6">
         <Logo>
           <LogoIcon />
           <LogoBrand />
@@ -103,10 +104,7 @@ function HomePage() {
         </div>
       </main>
 
-      <footer className="container border-t py-6 mt-8 flex items-center justify-between text-sm text-muted-foreground">
-        <span>© {new Date().getFullYear()} BioBoost</span>
-        <span>bioboost.fit</span>
-      </footer>
+      <Footer />
     </div>
   )
 }
