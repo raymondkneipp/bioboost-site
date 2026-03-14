@@ -4,9 +4,9 @@ import { z } from "zod"
 export const env = createEnv({
   clientPrefix: "VITE_",
   client: {
-    VITE_WEB_URL: z.string().url().default("http://localhost:3000"),
+    VITE_WEB_URL: z.url().default("http://localhost:3000"),
   },
   runtimeEnv: {
-    VITE_WEB_URL: import.meta.env.VITE_WEB_URL,
+    VITE_WEB_URL: import.meta.env.VITE_WEB_URL ?? process.env["VITE_WEB_URL"],
   },
 })
