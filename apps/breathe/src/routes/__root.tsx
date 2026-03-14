@@ -19,7 +19,7 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "BioBoost Breathe | Guided Breathing Exercises",
+        title: "Guided Breathing Exercises | BioBoost",
       },
       {
         name: "description",
@@ -33,7 +33,7 @@ export const Route = createRootRoute({
       },
       {
         property: "og:title",
-        content: "BioBoost Breathe | Guided Breathing Exercises",
+        content: "Guided Breathing Exercises | BioBoost",
       },
       {
         property: "og:description",
@@ -54,7 +54,7 @@ export const Route = createRootRoute({
       },
       {
         name: "twitter:title",
-        content: "BioBoost Breathe | Guided Breathing Exercises",
+        content: "Guided Breathing Exercises | BioBoost",
       },
       {
         name: "twitter:description",

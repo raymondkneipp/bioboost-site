@@ -6,12 +6,12 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Logo, LogoBrand } from "@workspace/ui/components/logo"
 
-export function Footer() {
+export function Footer({ homeHref = "/" }: { homeHref?: string }) {
   return (
     <footer className="border-t border-border bg-background">
       <div className="container py-12 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-center md:items-start gap-2">
-          <Logo as="a" href="http://localhost:3000">
+          <Logo as="a" href={homeHref}>
             <LogoBrand />
           </Logo>
           <p className="text-sm text-muted-foreground">

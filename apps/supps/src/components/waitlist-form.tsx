@@ -2,21 +2,24 @@ import { Mail01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@workspace/ui/components/button"
 import { Input } from "@workspace/ui/components/input"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@workspace/ui/components/input-group"
-import { cn } from "@workspace/ui/lib/utils"
 import { useState } from "react"
 
 export function WaitlistForm() {
   const [email, setEmail] = useState("")
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setEmail("")
-    alert("TODO")
+    setSubmitted(true)
+  }
+
+  if (submitted) {
+    return (
+      <p className="text-sm font-medium text-primary">
+        You&apos;re on the list! We&apos;ll notify you when we launch.
+      </p>
+    )
   }
 
   return (

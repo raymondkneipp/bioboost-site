@@ -12,6 +12,7 @@ import {
   LogoProduct,
 } from "@workspace/ui/components/logo"
 import appCss from "@workspace/ui/globals.css?url"
+import { env } from "@/env"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -24,7 +25,7 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "BioBoost | Personalized Supplement Blends",
+        title: "Personalized Supplement Blends | BioBoost",
       },
       {
         name: "description",
@@ -38,7 +39,7 @@ export const Route = createRootRoute({
       },
       {
         property: "og:title",
-        content: "BioBoost | Personalized Supplement Blends",
+        content: "Personalized Supplement Blends | BioBoost",
       },
       {
         property: "og:description",
@@ -59,7 +60,7 @@ export const Route = createRootRoute({
       },
       {
         name: "twitter:title",
-        content: "BioBoost | Personalized Supplement Blends",
+        content: "Personalized Supplement Blends | BioBoost",
       },
       {
         name: "twitter:description",
@@ -115,7 +116,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <header className="fixed top-0 inset-x-0 z-20 bg-background/75 backdrop-blur-sm">
           <div className="container py-4 md:py-6">
-            <Logo as="a" href="http://localhost:3000">
+            <Logo as="a" href={env.VITE_WEB_URL}>
               <LogoIcon />
               <LogoBrand />
               <LogoProduct as={Link} to="/">
@@ -125,7 +126,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           </div>
         </header>
         <main className="flex flex-col gap-12">{children}</main>
-        <Footer />
+        <Footer homeHref={env.VITE_WEB_URL} />
         <Scripts />
       </body>
     </html>

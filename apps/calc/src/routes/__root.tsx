@@ -55,7 +55,7 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "BioBoost | Calculators",
+        title: "Calculators | BioBoost",
       },
       {
         name: "description",
@@ -67,7 +67,7 @@ export const Route = createRootRoute({
       },
       {
         property: "og:title",
-        content: "BioBoost | Calculators",
+        content: "Calculators | BioBoost",
       },
       {
         property: "og:description",
@@ -87,7 +87,7 @@ export const Route = createRootRoute({
       },
       {
         name: "twitter:title",
-        content: "BioBoost | Calculators",
+        content: "Calculators | BioBoost",
       },
       {
         name: "twitter:description",

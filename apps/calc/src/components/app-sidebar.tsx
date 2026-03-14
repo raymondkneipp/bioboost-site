@@ -1,4 +1,5 @@
 import * as Icons from "@hugeicons/core-free-icons"
+import { env } from "@/env"
 import { BodyWeightIcon, SearchIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
 import { Link, type LinkProps, useRouterState } from "@tanstack/react-router"
@@ -94,7 +95,7 @@ export function AppSidebar() {
             <SidebarMenuButton
               size="lg"
               render={
-                <Logo as="a" href="http://localhost:3000">
+                <Logo as="a" href={env.VITE_WEB_URL}>
                   <LogoIcon className="size-8!" />
                   <LogoBrand />
                   <LogoProduct as={Link} to="/">
