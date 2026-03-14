@@ -13,8 +13,8 @@
     "test": "turbo test"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.6",
-    "turbo": "^2.8.8",
+    "@biomejs/biome": "^2.4.7",
+    "turbo": "^2.8.17",
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@9.0.6",
