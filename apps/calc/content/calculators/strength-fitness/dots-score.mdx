@@ -1,15 +1,74 @@
 ---
-title: "DOTS Score"
-icon: "DumbbellIcon"
-summary: "DOTS is a powerlifting scoring system that normalizes total lifted weight relative to body weight for fair cross-category comparison."
-status: "not-started"
+title: "DOTS Score Calculator"
+icon: "RankingIcon"
+summary: "DOTS is a powerlifting scoring system that fairly compares lifters across different body weights and sexes. It uses a polynomial formula developed by Tim Kohlenberg in 2019."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is DOTS?"
+    answer: "DOTS (named after its creator's initials) is a scoring coefficient used in powerlifting to normalize total lifted weight relative to body weight, allowing fair comparison across weight classes and sexes."
+  - question: "What is a good DOTS score?"
+    answer: "300+ is intermediate, 400+ is advanced, and 500+ is elite/competitive level. Most recreational powerlifters score between 200 and 350."
+  - question: "How does DOTS compare to Wilks?"
+    answer: "Both normalize powerlifting totals by body weight. DOTS was developed as a more equitable alternative to Wilks, particularly for lighter and heavier lifters where Wilks was seen as less accurate."
+  - question: "What lifts are included in the total?"
+    answer: "Powerlifting total = Squat + Bench Press + Deadlift (S+B+D). You can also calculate DOTS for a single lift."
 ---
 
-# DOTS Score
+# DOTS Score Calculator
 
-DOTS is a powerlifting scoring system that normalizes total lifted weight relative to body weight for fair cross-category comparison.
+DOTS is a powerlifting scoring coefficient developed by Tim Kohlenberg in 2019. It allows lifters of different body weights and sexes to be compared on an equal footing.
 
-Coming soon.
+<DotsCalculator />
+
+## The DOTS Formula
+
+**DOTS = Total Lifted × Coefficient(body weight)**
+
+The coefficient uses a 4th-degree polynomial with sex-specific constants:
+
+**Male coefficient = 500 / (−307.75076 + 24.0900756w − 0.1918759221w² + 0.0007391293w³ − 0.000001093w⁴)**
+
+**Female coefficient = 500 / (−57.96288 + 13.6175032w − 0.1126655495w² + 0.0005158568w³ − 0.0000010706822w⁴)**
+
+Where **w** = body weight in kilograms.
+
+## DOTS Score Benchmarks
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Below 200</td>
+      <td>Beginner</td>
+    </tr>
+    <tr>
+      <td>200–300</td>
+      <td>Novice</td>
+    </tr>
+    <tr>
+      <td>300–400</td>
+      <td>Intermediate</td>
+    </tr>
+    <tr>
+      <td>400–500</td>
+      <td>Advanced</td>
+    </tr>
+    <tr>
+      <td>500+</td>
+      <td>Elite</td>
+    </tr>
+  </tbody>
+</table>
+
+## DOTS vs Wilks
+
+Both DOTS and Wilks solve the same problem — comparing powerlifters of different sizes — but DOTS was designed to address two criticisms of Wilks:
+
+1. **Gender equity:** DOTS coefficients produce more equitable comparisons between male and female lifters.
+2. **Body weight extremes:** Wilks over-rewards very light lifters and under-rewards very heavy ones. DOTS is more neutral across the full body weight spectrum.
+
+DOTS is now used alongside IPF GL Points in many federations.

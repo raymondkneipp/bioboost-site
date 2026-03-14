@@ -1,15 +1,84 @@
 ---
 title: "One Rep Max"
-icon: "DumbbellIcon"
-summary: "One rep max (1RM) is the maximum weight you can lift for a single repetition of an exercise, a key measure of strength."
-status: "not-started"
+icon: "Dumbbell01Icon"
+summary: "One rep max (1RM) is the maximum weight you can lift for a single repetition of an exercise, a key measure of absolute strength."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is a one rep max?"
+    answer: "Your one rep max (1RM) is the maximum amount of weight you can lift for a single, full-range-of-motion repetition of a given exercise."
+  - question: "Which formula is most accurate?"
+    answer: "Epley and Brzycki are the most widely used. Epley tends to slightly overestimate at higher rep ranges, while Brzycki is more conservative. All formulas are most accurate when calculated from sets of 1–10 reps."
+  - question: "Is it safe to test my 1RM directly?"
+    answer: "Directly testing a 1RM carries injury risk, especially for beginners. Using a rep-based estimate from a submaximal set is a safer alternative."
+  - question: "How do I use my 1RM for programming?"
+    answer: "Training percentages are typically prescribed as a percentage of 1RM — for example, 70–80% for hypertrophy work and 85–95% for strength work."
 ---
 
-# One Rep Max
+# One Rep Max Calculator
 
-One rep max (1RM) is the maximum weight you can lift for a single repetition of an exercise, a key measure of strength.
+One rep max (1RM) is the maximum weight you can lift for a single repetition of an exercise. It is the standard measure of absolute strength and the foundation of percentage-based strength programming.
 
-Coming soon.
+<OneRepMaxCalculator />
+
+## How to Use
+
+Enter the weight you lifted and the number of reps you completed. The calculator estimates your 1RM using your chosen formula. For best accuracy, use a set of 1–10 reps taken close to failure.
+
+## Formulas
+
+### Epley (Default)
+
+The most commonly referenced formula, developed in 1985.
+
+**1RM = weight × (1 + reps / 30)**
+
+### Brzycki
+
+A slightly more conservative estimate, accurate up to about 10 reps.
+
+**1RM = weight × (36 / (37 − reps))**
+
+### Lombardi
+
+Uses an exponential model, tends to produce higher estimates at higher rep ranges.
+
+**1RM = weight × reps^0.1**
+
+## Training Percentages
+
+Once you know your 1RM, use these general guidelines for programming:
+
+<table>
+  <thead>
+    <tr>
+      <th>% of 1RM</th>
+      <th>Reps per Set</th>
+      <th>Training Goal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>90–100%</td>
+      <td>1–3</td>
+      <td>Maximal strength</td>
+    </tr>
+    <tr>
+      <td>80–90%</td>
+      <td>3–5</td>
+      <td>Strength</td>
+    </tr>
+    <tr>
+      <td>70–80%</td>
+      <td>6–12</td>
+      <td>Hypertrophy</td>
+    </tr>
+    <tr>
+      <td>60–70%</td>
+      <td>12–20</td>
+      <td>Muscular endurance</td>
+    </tr>
+  </tbody>
+</table>
+
+## Limitations
+
+All 1RM estimation formulas assume a consistent strength-to-endurance ratio, which varies between individuals. Highly trained athletes and those who excel at higher rep ranges may find estimates less accurate. Always approach near-maximal lifts with proper warm-up and a spotter.

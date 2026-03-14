@@ -1,15 +1,84 @@
 ---
-title: "Cholesterol Ratio"
-icon: "MedicalMaskIcon"
-summary: "Calculate your cholesterol ratio to assess cardiovascular disease risk from your HDL and total cholesterol values."
-status: "not-started"
+title: "Cholesterol Ratio Calculator"
+icon: "BloodTypeIcon"
+summary: "Your total cholesterol to HDL ratio is a better predictor of cardiovascular risk than total cholesterol alone. Enter your cholesterol values to see your ratio and risk category."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is the cholesterol ratio?"
+    answer: "The cholesterol ratio divides total cholesterol by HDL (good) cholesterol. A lower ratio is better. Ratios below 3.5 are optimal; above 5 indicate elevated risk."
+  - question: "What is HDL cholesterol?"
+    answer: "HDL (high-density lipoprotein) is known as 'good' cholesterol because it helps remove other forms of cholesterol from the bloodstream. Higher levels are protective."
+  - question: "What is LDL cholesterol?"
+    answer: "LDL (low-density lipoprotein) is 'bad' cholesterol that can build up in artery walls. High LDL is a major risk factor for heart disease and stroke."
+  - question: "What are normal cholesterol levels?"
+    answer: "Total cholesterol below 200 mg/dL is desirable. HDL above 60 mg/dL is protective. LDL below 100 mg/dL is optimal."
 ---
 
-# Cholesterol Ratio
+# Cholesterol Ratio Calculator
 
-Calculate your cholesterol ratio to assess cardiovascular disease risk from your HDL and total cholesterol values.
+The total cholesterol to HDL ratio is one of the best predictors of cardiovascular risk. Enter your values from a lipid panel blood test.
 
-Coming soon.
+<CholesterolCalculator />
+
+## Understanding Your Results
+
+<table>
+  <thead>
+    <tr>
+      <th>Total:HDL Ratio</th>
+      <th>Risk Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Below 3.5</td>
+      <td>Optimal</td>
+    </tr>
+    <tr>
+      <td>3.5–4.9</td>
+      <td>Good</td>
+    </tr>
+    <tr>
+      <td>5.0–5.9</td>
+      <td>Borderline</td>
+    </tr>
+    <tr>
+      <td>6.0 and above</td>
+      <td>High Risk</td>
+    </tr>
+  </tbody>
+</table>
+
+## Cholesterol Reference Ranges
+
+<table>
+  <thead>
+    <tr>
+      <th>Measurement</th>
+      <th>Desirable</th>
+      <th>Borderline</th>
+      <th>High Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Cholesterol</td>
+      <td>Below 200</td>
+      <td>200–239</td>
+      <td>240+</td>
+    </tr>
+    <tr>
+      <td>LDL Cholesterol</td>
+      <td>Below 100</td>
+      <td>130–159</td>
+      <td>160+</td>
+    </tr>
+    <tr>
+      <td>HDL Cholesterol</td>
+      <td>60+ (protective)</td>
+      <td>40–59</td>
+      <td>Below 40 (risk factor)</td>
+    </tr>
+  </tbody>
+</table>
+
+Values are in mg/dL. This calculator is for educational purposes and does not replace a doctor's advice.

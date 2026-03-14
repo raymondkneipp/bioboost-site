@@ -1,15 +1,80 @@
 ---
-title: "Blood Pressure Category"
-icon: "MedicalMaskIcon"
-summary: "Determine your blood pressure category and understand what your readings mean for your cardiovascular health."
-status: "not-started"
+title: "Blood Pressure Checker"
+icon: "BloodPressureIcon"
+summary: "Check what your blood pressure reading means. Enter your systolic and diastolic values to see your blood pressure category based on the American Heart Association (AHA) 2017 guidelines."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is systolic vs diastolic pressure?"
+    answer: "Systolic pressure (the top number) measures the force when your heart beats. Diastolic pressure (the bottom number) measures the force between beats when your heart is at rest."
+  - question: "What is normal blood pressure?"
+    answer: "Normal blood pressure is below 120/80 mmHg. Elevated is 120–129 systolic with diastolic below 80. High Stage 1 starts at 130/80 or higher."
+  - question: "What causes high blood pressure?"
+    answer: "Risk factors include excess weight, lack of exercise, high sodium diet, alcohol, stress, smoking, genetics, and age. Most cases have no single cause."
+  - question: "Should I see a doctor about my reading?"
+    answer: "Yes, if you consistently see readings at Stage 1 or higher. A hypertensive crisis (above 180/120) requires immediate medical attention."
 ---
 
-# Blood Pressure Category
+# Blood Pressure Checker
 
-Determine your blood pressure category and understand what your readings mean for your cardiovascular health.
+Enter your blood pressure reading to see what category it falls in, based on the **American Heart Association 2017 guidelines**.
 
-Coming soon.
+<BloodPressureCalculator />
+
+## Blood Pressure Categories
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Systolic</th>
+      <th></th>
+      <th>Diastolic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low (Hypotension)</td>
+      <td>Below 90</td>
+      <td>or</td>
+      <td>Below 60</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Below 120</td>
+      <td>and</td>
+      <td>Below 80</td>
+    </tr>
+    <tr>
+      <td>Elevated</td>
+      <td>120–129</td>
+      <td>and</td>
+      <td>Below 80</td>
+    </tr>
+    <tr>
+      <td>High Stage 1</td>
+      <td>130–139</td>
+      <td>or</td>
+      <td>80–89</td>
+    </tr>
+    <tr>
+      <td>High Stage 2</td>
+      <td>140+</td>
+      <td>or</td>
+      <td>90+</td>
+    </tr>
+    <tr>
+      <td>Hypertensive Crisis</td>
+      <td>180+</td>
+      <td>and/or</td>
+      <td>120+</td>
+    </tr>
+  </tbody>
+</table>
+
+## Taking an Accurate Reading
+
+- Sit quietly for 5 minutes before measuring.
+- Rest your arm at heart level.
+- Don't smoke, exercise, or drink caffeine within 30 minutes.
+- Take two to three readings and average them.
+
+This calculator is for informational purposes only and is not a substitute for medical advice.

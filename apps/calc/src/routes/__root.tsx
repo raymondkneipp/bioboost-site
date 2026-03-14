@@ -28,10 +28,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@workspace/ui/components/sidebar"
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@workspace/ui/components/toggle-group"
+import { RadioGroup } from "@/components/form/radio-group"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SettingsProvider, useSettings } from "@/contexts/settings"
 import appCss from "@/styles.css?url"
@@ -147,7 +144,7 @@ function AppBreadcrumb() {
     .reverse()
     .find((m) => "group" in m.params && !("slug" in m.params))
 
-  const group = (calcMatch ?? groupMatch)?.params.group as string | undefined
+  const group = ((calcMatch ?? groupMatch)?.params as Record<string, string | undefined>)?.group
 
   return (
     <Breadcrumb className="flex-1">
@@ -167,7 +164,7 @@ function AppBreadcrumb() {
               {calcMatch ? (
                 <BreadcrumbLink
                   render={
-                    <Link to="/$group/" params={{ group }}>
+                    <Link to="/$group" params={{ group }}>
                       {groupLabels[group] ?? group}
                     </Link>
                   }
@@ -185,7 +182,7 @@ function AppBreadcrumb() {
             <BreadcrumbItem>
               <BreadcrumbPage>
                 {(calcMatch.loaderData as { title?: string })?.title ??
-                  calcMatch.params.slug}
+                  (calcMatch.params as Record<string, string | undefined>).slug}
               </BreadcrumbPage>
             </BreadcrumbItem>
           </>
@@ -213,20 +210,16 @@ function SettingsSheet() {
           <SheetTitle>Settings</SheetTitle>
         </SheetHeader>
         <div className="flex flex-col gap-4 px-6">
-          <div className="flex flex-col gap-2">
-            <span className="text-sm font-medium">Unit System</span>
-            <ToggleGroup
-              variant="outline"
-              value={[units]}
-              onValueChange={(values) => {
-                const v = values[0]
-                if (v === "metric" || v === "imperial") setUnits(v)
-              }}
-            >
-              <ToggleGroupItem value="metric">Metric</ToggleGroupItem>
-              <ToggleGroupItem value="imperial">Imperial</ToggleGroupItem>
-            </ToggleGroup>
-          </div>
+          <RadioGroup
+            label="Unit System"
+            name="unit-system"
+            value={units}
+            options={[
+              { value: "metric", label: "Metric" },
+              { value: "imperial", label: "Imperial" },
+            ]}
+            onChange={setUnits}
+          />
         </div>
       </SheetContent>
     </Sheet>

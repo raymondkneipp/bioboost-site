@@ -1,6 +1,8 @@
 import * as Icons from "@hugeicons/core-free-icons"
+import { ArrowLeft01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
 import { createFileRoute, Link, notFound } from "@tanstack/react-router"
+import { Button } from "@workspace/ui/components/button"
 import {
   InputGroup,
   InputGroupAddon,
@@ -50,47 +52,50 @@ function RouteComponent() {
     [calculators],
   )
 
-  const results = query
-    ? fuse.search(query).map((r) => r.item)
-    : calculators
+  const results = query ? fuse.search(query).map((r) => r.item) : calculators
 
   return (
     <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-2">
+        <Button variant="ghost" size="icon-lg" render={<Link to="/" />}>
+          <HugeiconsIcon icon={ArrowLeft01Icon} className="size-4" />
+        </Button>
         <h1 className="text-2xl font-bold">{label}</h1>
+      </div>
 
-        <InputGroup>
-          <InputGroupAddon>
-            <HugeiconsIcon icon={Icons.SearchIcon} />
-          </InputGroupAddon>
-          <InputGroupInput
-            placeholder={`Search ${label.toLowerCase()}...`}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </InputGroup>
+      <InputGroup>
+        <InputGroupAddon>
+          <HugeiconsIcon icon={Icons.SearchIcon} />
+        </InputGroupAddon>
+        <InputGroupInput
+          placeholder={`Search ${label.toLowerCase()}...`}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </InputGroup>
 
-        <ul className="flex flex-col gap-2">
-          {results.map((calc) => (
-            <li key={calc.slug}>
-              <Link
-                to="/$group/$slug"
-                params={{ group, slug: calc.slug }}
-                className="flex items-center gap-3 rounded-lg border p-3 hover:bg-muted transition-colors"
-              >
-                <HugeiconsIcon
-                  icon={Icons[calc.icon as keyof typeof Icons] as IconSvgElement}
-                  className="size-5 shrink-0"
-                />
-                <div className="flex flex-col gap-0.5">
-                  <span className="font-medium text-sm">{calc.title}</span>
-                  <span className="text-xs text-muted-foreground line-clamp-1">
-                    {calc.summary}
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <ul className="flex flex-col gap-2">
+        {results.map((calc) => (
+          <li key={calc.slug}>
+            <Link
+              to="/$group/$slug"
+              params={{ group, slug: calc.slug }}
+              className="flex items-center gap-3 rounded-lg border p-3 hover:bg-muted transition-colors"
+            >
+              <HugeiconsIcon
+                icon={Icons[calc.icon as keyof typeof Icons] as IconSvgElement}
+                className="size-5 shrink-0"
+              />
+              <div className="flex flex-col gap-0.5">
+                <span className="font-medium text-sm">{calc.title}</span>
+                <span className="text-xs text-muted-foreground line-clamp-1">
+                  {calc.summary}
+                </span>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

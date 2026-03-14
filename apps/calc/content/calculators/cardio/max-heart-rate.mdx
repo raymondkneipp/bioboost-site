@@ -1,15 +1,81 @@
 ---
-title: "Maximum Heart Rate"
-icon: "FavouriteIcon"
-summary: "Estimate your maximum heart rate to define safe and effective exercise intensity zones."
-status: "not-started"
+title: "Max Heart Rate Calculator"
+icon: "Cardiogram01Icon"
+summary: "Maximum heart rate (MHR) is the highest number of beats per minute your heart can achieve. It's used to define heart rate training zones and set workout intensity targets."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is maximum heart rate?"
+    answer: "Maximum heart rate is the highest number of beats per minute your heart can sustain. It is primarily determined by age and genetics, not fitness level."
+  - question: "Which formula is most accurate?"
+    answer: "Tanaka (208 − 0.7 × age) is more accurate than the older Fox formula (220 − age) for adults, especially those over 40. The Gulati formula is validated specifically for women."
+  - question: "Does fitness level affect max heart rate?"
+    answer: "No — max heart rate is largely genetic and declines with age. What fitness training does improve is how efficiently your heart works at sub-maximal intensities."
 ---
 
-# Maximum Heart Rate
+# Max Heart Rate Calculator
 
-Estimate your maximum heart rate to define safe and effective exercise intensity zones.
+Maximum heart rate (MHR) is the upper limit of your cardiovascular system during exercise. It is used to define training zones — from easy recovery efforts to all-out exertion.
 
-Coming soon.
+<MaxHeartRateCalculator />
+
+## Formulas
+
+### Fox (1971)
+
+The classic and most widely known formula.
+
+**MHR = 220 − age**
+
+Simple but less accurate, especially for older adults.
+
+### Tanaka (2001) — Recommended
+
+A meta-analysis of over 18,000 subjects, more accurate than Fox for most adults.
+
+**MHR = 208 − (0.7 × age)**
+
+### Gulati (2010)
+
+Developed specifically from a study of 5,437 women.
+
+**MHR = 206 − (0.88 × age)**
+
+## Training Zones
+
+Once you know your max heart rate, you can set zones for different training intensities:
+
+<table>
+  <thead>
+    <tr>
+      <th>Zone</th>
+      <th>% of MHR</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recovery</td>
+      <td>50–60%</td>
+      <td>Active recovery, warm-up</td>
+    </tr>
+    <tr>
+      <td>Fat Burn</td>
+      <td>60–70%</td>
+      <td>Aerobic base, fat oxidation</td>
+    </tr>
+    <tr>
+      <td>Aerobic</td>
+      <td>70–80%</td>
+      <td>Endurance, cardiovascular improvement</td>
+    </tr>
+    <tr>
+      <td>Anaerobic</td>
+      <td>80–90%</td>
+      <td>Speed, lactate threshold</td>
+    </tr>
+    <tr>
+      <td>Max Effort</td>
+      <td>90–100%</td>
+      <td>All-out, interval training</td>
+    </tr>
+  </tbody>
+</table>

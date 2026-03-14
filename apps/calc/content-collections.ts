@@ -10,7 +10,6 @@ const calculators = defineCollection({
     title: z.string(),
     icon: z.string(),
     summary: z.string(),
-    status: z.enum(["new", "in-progress", "not-started"]),
     faqs: z.array(
       z.object({
         question: z.string(),

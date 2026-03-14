@@ -1,15 +1,80 @@
 ---
 title: "Body Fat Percentage"
-icon: "PercentIcon"
-summary: "Body fat percentage is the proportion of fat mass relative to total body weight, a key indicator of body composition and health."
-status: "not-started"
+icon: "PercentCircleIcon"
+summary: "Body fat percentage is the proportion of fat mass relative to total body weight. This calculator uses the US Navy circumference method to estimate body fat for men and women."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is a healthy body fat percentage?"
+    answer: "For men, 10–20% is generally considered fit to healthy. For women, 18–28%. Athletes often fall below these ranges."
+  - question: "How accurate is the US Navy method?"
+    answer: "The Navy method has a margin of error of about ±3–4%. It is less accurate than DEXA or hydrostatic weighing but far more accessible."
+  - question: "Where do I measure my waist?"
+    answer: "Measure at the narrowest point (men) or at the navel level (women). Keep the tape parallel to the floor and don't suck in your stomach."
+  - question: "Why is hip measurement needed for women?"
+    answer: "Women tend to carry more fat in the hips and glutes. Including the hip circumference improves accuracy of the Navy formula for women."
 ---
 
-# Body Fat Percentage
+# Body Fat Percentage Calculator
 
-Body fat percentage is the proportion of fat mass relative to total body weight, a key indicator of body composition and health.
+Body fat percentage tells you how much of your total body weight is fat. Unlike BMI, it directly measures body composition and is a better predictor of metabolic health and fitness.
 
-Coming soon.
+<BodyFatCalculator />
+
+## US Navy Circumference Method
+
+This calculator uses the US Navy formula, which estimates body fat from body circumference measurements.
+
+**Men:**
+
+Body Fat % = 86.010 × log₁₀(waist − neck) − 70.041 × log₁₀(height) + 36.76
+
+**Women:**
+
+Body Fat % = 163.205 × log₁₀(waist + hip − neck) − 97.684 × log₁₀(height) − 78.387
+
+All measurements in centimeters.
+
+## Body Fat Categories
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Men</th>
+      <th>Women</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Essential fat</td>
+      <td>2–5%</td>
+      <td>10–13%</td>
+    </tr>
+    <tr>
+      <td>Athletes</td>
+      <td>6–13%</td>
+      <td>14–20%</td>
+    </tr>
+    <tr>
+      <td>Fitness</td>
+      <td>14–17%</td>
+      <td>21–24%</td>
+    </tr>
+    <tr>
+      <td>Average</td>
+      <td>18–24%</td>
+      <td>25–31%</td>
+    </tr>
+    <tr>
+      <td>Obese</td>
+      <td>25%+</td>
+      <td>32%+</td>
+    </tr>
+  </tbody>
+</table>
+
+## Measuring Tips
+
+- Use a flexible measuring tape, pulled snug but not tight.
+- Take measurements in the morning, before eating.
+- Measure three times and average the results.
+- Keep the tape horizontal to the floor for all circumferences.

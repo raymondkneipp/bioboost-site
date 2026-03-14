@@ -1,15 +1,67 @@
 ---
 title: "Macro Calculator"
-icon: "Apple01Icon"
-summary: "A macro calculator helps determine your ideal intake of protein, carbohydrates, and fats to meet your body composition goals."
-status: "not-started"
+icon: "PieChart01Icon"
+summary: "Calculate your ideal macronutrient split — protein, carbohydrates, and fat — in grams per day based on your total calories and fitness goal."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What are macros?"
+    answer: "Macronutrients are protein, carbohydrates, and fat — the three main nutrient groups that provide calories. Protein and carbs provide 4 kcal/g; fat provides 9 kcal/g."
+  - question: "What macro split is best for fat loss?"
+    answer: "Higher protein (40%) helps preserve muscle and increases satiety. Moderate carbs (30%) fuel training. Fat (30%) supports hormones. Adjust based on personal preference and adherence."
+  - question: "What is a ketogenic diet?"
+    answer: "A ketogenic diet is very low in carbs (5%) and high in fat (70%), forcing the body into ketosis — a metabolic state where fat is the primary fuel source."
+  - question: "Do macros matter more than total calories?"
+    answer: "Total calories determine weight change. Macros determine body composition and how the weight changes affect muscle vs. fat. Both matter for optimal results."
 ---
 
 # Macro Calculator
 
-A macro calculator helps determine your ideal intake of protein, carbohydrates, and fats to meet your body composition goals.
+Enter your daily calorie target and choose your goal to get a gram-by-gram breakdown of protein, carbs, and fat.
 
-Coming soon.
+<MacrosCalculator />
+
+## Macro Splits by Goal
+
+<table>
+  <thead>
+    <tr>
+      <th>Goal</th>
+      <th>Protein</th>
+      <th>Carbs</th>
+      <th>Fat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Maintenance</td>
+      <td>30%</td>
+      <td>40%</td>
+      <td>30%</td>
+    </tr>
+    <tr>
+      <td>Fat Loss</td>
+      <td>40%</td>
+      <td>30%</td>
+      <td>30%</td>
+    </tr>
+    <tr>
+      <td>Muscle Gain</td>
+      <td>30%</td>
+      <td>50%</td>
+      <td>20%</td>
+    </tr>
+    <tr>
+      <td>Ketogenic</td>
+      <td>25%</td>
+      <td>5%</td>
+      <td>70%</td>
+    </tr>
+  </tbody>
+</table>
+
+## Caloric Value of Macros
+
+- **Protein:** 4 kcal per gram
+- **Carbohydrates:** 4 kcal per gram
+- **Fat:** 9 kcal per gram
+
+These conversions are used to translate the percentage split into grams.

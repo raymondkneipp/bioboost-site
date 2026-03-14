@@ -1,15 +1,44 @@
 ---
 title: "Lean Body Mass"
-icon: "BodyWeightIcon"
-summary: "Lean body mass is the total weight of your body minus all the weight due to fat mass, including muscles, bones, organs, and water."
-status: "not-started"
+icon: "BodyPartMuscleIcon"
+summary: "Lean body mass (LBM) is everything in your body except fat — muscle, bone, organs, and water. It's a key metric for tracking fitness progress and setting protein targets."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is lean body mass?"
+    answer: "Lean body mass is your total body weight minus fat mass. It includes muscle, bone, organs, water, and connective tissue."
+  - question: "How is LBM used in fitness?"
+    answer: "LBM is used to calculate protein needs, estimate resting metabolic rate more accurately, and track changes in body composition over time."
+  - question: "Which formula should I use?"
+    answer: "Boer is generally considered the most accurate for most adults. James tends to underestimate in taller or heavier individuals. Hume is a simpler alternative."
 ---
 
-# Lean Body Mass
+# Lean Body Mass Calculator
 
-Lean body mass is the total weight of your body minus all the weight due to fat mass, including muscles, bones, organs, and water.
+Lean body mass (LBM) is the weight of everything in your body except fat. Knowing your LBM helps you set more accurate nutrition targets and understand your body composition beyond just total body weight.
 
-Coming soon.
+<LeanBodyMassCalculator />
+
+## Formulas
+
+### Boer (1984) — Recommended
+
+**Men:** LBM = 0.407 × weight (kg) + 0.267 × height (cm) − 19.2
+
+**Women:** LBM = 0.252 × weight (kg) + 0.473 × height (cm) − 48.3
+
+### James (1976)
+
+**Men:** LBM = 1.1 × weight (kg) − 128 × (weight / height)²
+
+**Women:** LBM = 1.07 × weight (kg) − 148 × (weight / height)²
+
+### Hume (1966)
+
+**Men:** LBM = 0.3281 × weight (kg) + 0.3393 × height (cm) − 29.5336
+
+**Women:** LBM = 0.2994 × weight (kg) + 0.7861 × height (cm) − 59.3724
+
+## Why LBM Matters
+
+- **Protein targets:** Most recommendations are set per kg of LBM (or body weight), with higher demands for athletes.
+- **Drug dosing:** Many medications are dosed based on LBM, not total body weight.
+- **Progress tracking:** LBM can increase while total weight stays the same — a sign of muscle gain and fat loss.

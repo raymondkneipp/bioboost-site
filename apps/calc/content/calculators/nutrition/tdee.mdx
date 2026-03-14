@@ -1,15 +1,63 @@
 ---
-title: "TDEE"
-icon: "Apple01Icon"
-summary: "Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns each day, accounting for activity level."
-status: "not-started"
+title: "TDEE Calculator"
+icon: "EnergyIcon"
+summary: "Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns each day, accounting for activity level. It's the starting point for any nutrition plan."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is TDEE?"
+    answer: "TDEE stands for Total Daily Energy Expenditure — the total calories you burn each day including your basal metabolic rate (BMR) and all physical activity."
+  - question: "How accurate is TDEE?"
+    answer: "TDEE estimates are within 10–20% for most people. Individual variation in metabolism, body composition, and NEAT (non-exercise activity) affects accuracy. Track your actual intake and weight for 2–3 weeks to calibrate."
+  - question: "What is the difference between BMR and TDEE?"
+    answer: "BMR is the calories your body burns at complete rest. TDEE multiplies your BMR by an activity factor, so it includes exercise and all daily movement."
+  - question: "How do I use TDEE to lose weight?"
+    answer: "Eat 250–500 kcal below your TDEE for gradual weight loss of 0.25–0.5 kg per week. Use the Calorie Deficit calculator to set your daily target."
 ---
 
-# TDEE
+# TDEE Calculator
 
-Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns each day, accounting for activity level.
+Your Total Daily Energy Expenditure (TDEE) is how many calories you actually burn in a day. It's your baseline for designing any diet — whether you want to lose fat, maintain weight, or build muscle.
 
-Coming soon.
+<TDEECalculator />
+
+## How TDEE is Calculated
+
+TDEE = BMR × Activity Multiplier
+
+The BMR is estimated using the Mifflin-St Jeor equation (default) or Harris-Benedict. The result is multiplied by an activity factor:
+
+<table>
+  <thead>
+    <tr>
+      <th>Activity Level</th>
+      <th>Multiplier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sedentary (office job, no exercise)</td>
+      <td>× 1.2</td>
+    </tr>
+    <tr>
+      <td>Light (1–3 days/week exercise)</td>
+      <td>× 1.375</td>
+    </tr>
+    <tr>
+      <td>Moderate (3–5 days/week exercise)</td>
+      <td>× 1.55</td>
+    </tr>
+    <tr>
+      <td>Active (6–7 days/week exercise)</td>
+      <td>× 1.725</td>
+    </tr>
+    <tr>
+      <td>Very Active (twice/day or physical job)</td>
+      <td>× 1.9</td>
+    </tr>
+  </tbody>
+</table>
+
+## Using TDEE for Your Goals
+
+- **Lose fat:** Eat 250–500 kcal below TDEE
+- **Maintain weight:** Eat at TDEE
+- **Build muscle:** Eat 200–300 kcal above TDEE (lean bulk)

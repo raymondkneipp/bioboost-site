@@ -1,15 +1,57 @@
 ---
 title: "Weight Loss Timeline"
-icon: "Target02Icon"
-summary: "Estimate how long it will take to reach your target weight based on your current calorie deficit and starting point."
-status: "not-started"
+icon: "TimelineIcon"
+summary: "Estimate how long it will take to reach your target weight based on your starting weight and calorie deficit. Based on the 7,700 kcal per kg of fat model."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "How many calories equal one kg of fat?"
+    answer: "Approximately 7,700 kcal equals 1 kg of body fat. So a 500 kcal/day deficit creates a weekly deficit of 3,500 kcal — about 0.45 kg of fat loss per week."
+  - question: "Is the timeline accurate?"
+    answer: "The model assumes consistent adherence and ignores metabolic adaptation, water retention changes, and non-fat weight loss. Real results will vary, especially as you approach your goal."
+  - question: "What is a realistic rate of fat loss?"
+    answer: "0.5–1% of body weight per week is sustainable for most people. Faster rates risk muscle loss. Slower rates are valid if your lifestyle supports them."
+  - question: "Why does fat loss slow down over time?"
+    answer: "As you lose weight, your TDEE decreases, so the same calorie deficit produces fewer results. Metabolic adaptation also reduces energy expenditure beyond what body weight alone predicts."
 ---
 
-# Weight Loss Timeline
+# Weight Loss Timeline Calculator
 
-Estimate how long it will take to reach your target weight based on your current calorie deficit and starting point.
+Enter your current weight, target weight, and calorie deficit to see an estimated timeline to your goal.
 
-Coming soon.
+<WeightLossTimelineCalculator />
+
+## The Science
+
+The calculation uses the widely accepted figure of **7,700 kcal per kg of body fat**:
+
+**Time (weeks) = (weight to lose in kg × 7,700) ÷ weekly deficit (kcal)**
+
+This assumes the deficit is consistent and applies entirely to fat loss — in practice, some weight loss will be from water and muscle.
+
+## Setting a Realistic Deficit
+
+<table>
+  <thead>
+    <tr>
+      <th>Deficit</th>
+      <th>Daily</th>
+      <th>Weekly Fat Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mild</td>
+      <td>250 kcal/day</td>
+      <td>~0.25 kg</td>
+    </tr>
+    <tr>
+      <td>Moderate</td>
+      <td>500 kcal/day</td>
+      <td>~0.45 kg</td>
+    </tr>
+    <tr>
+      <td>Aggressive</td>
+      <td>750 kcal/day</td>
+      <td>~0.7 kg</td>
+    </tr>
+  </tbody>
+</table>

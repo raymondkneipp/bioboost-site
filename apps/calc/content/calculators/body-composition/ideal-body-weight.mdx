@@ -1,15 +1,50 @@
 ---
 title: "Ideal Body Weight"
-icon: "BodyWeightIcon"
-summary: "Ideal body weight estimates the optimal weight for your height, helping guide weight management goals."
-status: "not-started"
+icon: "WeightScale01Icon"
+summary: "Ideal body weight (IBW) is an estimate of a healthy weight for your height. Several formulas — Devine, Robinson, Miller, and Hamwi — provide different estimates based on population studies."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "Which IBW formula is most accurate?"
+    answer: "No single formula is definitively best. Devine is the oldest and most referenced in clinical settings. Robinson and Miller produce slightly lower estimates, especially for women. Hamwi is commonly used in pharmacy."
+  - question: "Should I aim to reach my IBW?"
+    answer: "IBW is a rough estimate, not a precise target. Body composition, frame size, and muscle mass all matter more than hitting a specific number. Use it as a general reference alongside body fat percentage."
+  - question: "Why do men and women have different formulas?"
+    answer: "Men and women have different muscle-to-fat ratios and fat distribution patterns at the same height, so sex-specific formulas are needed for reasonable estimates."
 ---
 
-# Ideal Body Weight
+# Ideal Body Weight Calculator
 
-Ideal body weight estimates the optimal weight for your height, helping guide weight management goals.
+Ideal body weight is a statistical estimate of a healthy body weight based on height. It was originally developed for clinical use — particularly for medication dosing — rather than as a fitness goal.
 
-Coming soon.
+<IdealBodyWeightCalculator />
+
+## Formulas
+
+### Devine (1974)
+
+The most widely cited IBW formula in medical literature.
+
+**Men:** IBW = 50 + 2.3 × (height in inches − 60)
+
+**Women:** IBW = 45.5 + 2.3 × (height in inches − 60)
+
+### Robinson (1983)
+
+**Men:** IBW = 52 + 1.9 × (height in inches − 60)
+
+**Women:** IBW = 49 + 1.7 × (height in inches − 60)
+
+### Miller (1983)
+
+**Men:** IBW = 56.2 + 1.41 × (height in inches − 60)
+
+**Women:** IBW = 53.1 + 1.36 × (height in inches − 60)
+
+### Hamwi (1964)
+
+**Men:** IBW = 48 + 2.7 × (height in inches − 60)
+
+**Women:** IBW = 45.5 + 2.2 × (height in inches − 60)
+
+## Limitations
+
+IBW formulas do not account for age, frame size, muscle mass, or ethnicity. A bodybuilder and a sedentary person of the same height will have the same IBW — which highlights why it should not be used as a rigid target.

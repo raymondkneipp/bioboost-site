@@ -1,20 +1,7 @@
-import {
-  Alert02Icon,
-  Apple01Icon,
-  BodyWeightIcon,
-  ConstructionIcon,
-  DumbbellIcon,
-  Exchange01Icon,
-  FavouriteIcon,
-  MedicalMaskIcon,
-  Moon02Icon,
-  PercentIcon,
-  SearchIcon,
-  SparklesIcon,
-  Target02Icon,
-} from "@hugeicons/core-free-icons"
+import * as Icons from "@hugeicons/core-free-icons"
+import { BodyWeightIcon, SearchIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
-import { Link, type LinkProps } from "@tanstack/react-router"
+import { Link, type LinkProps, useRouterState } from "@tanstack/react-router"
 import {
   InputGroup,
   InputGroupAddon,
@@ -38,40 +25,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@workspace/ui/components/sidebar"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@workspace/ui/components/tooltip"
 import { allCalculators } from "content-collections"
 import Fuse from "fuse.js"
 import * as React from "react"
-
-type CalculatorStatus = "new" | "not-started" | "in-progress"
 
 type SidebarItem = {
   label: string
   icon: IconSvgElement
   to: LinkProps<HTMLAnchorElement>["to"] | string
-  status?: CalculatorStatus
 }
 
 type SidebarGroupItem = {
   label: string
   items: SidebarItem[]
-}
-
-const iconMap: Record<string, IconSvgElement> = {
-  BodyWeightIcon,
-  PercentIcon,
-  DumbbellIcon,
-  Apple01Icon,
-  Target02Icon,
-  FavouriteIcon,
-  MedicalMaskIcon,
-  Moon02Icon,
-  Exchange01Icon,
 }
 
 const groupLabels: Record<string, string> = {
@@ -94,15 +60,15 @@ const data: SidebarGroupItem[] = groupOrder
       .filter((calc) => calc.group === group)
       .map((calc) => ({
         label: calc.title,
-        icon: iconMap[calc.icon] ?? BodyWeightIcon,
+        icon: (Icons[calc.icon as keyof typeof Icons] as IconSvgElement) ?? BodyWeightIcon,
         to: `/${calc.group}/${calc.slug}`,
-        status: calc.status,
       })),
   }))
   .filter((group) => group.items.length > 0)
 
 export function AppSidebar() {
   const [results, setResults] = React.useState(data)
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
 
   const allItems = React.useMemo(() => data.flatMap((group) => group.items), [])
   const resultCount = React.useMemo(
@@ -121,7 +87,6 @@ export function AppSidebar() {
   )
 
   return (
-    <TooltipProvider>
     <Sidebar variant="sidebar">
       <SidebarHeader>
         <SidebarMenu>
@@ -187,61 +152,11 @@ export function AppSidebar() {
                 {group.items.map((item) => (
                   <SidebarMenuItem key={item.label}>
                     <SidebarMenuButton
+                      isActive={pathname === item.to}
                       render={
                         <Link to={item.to}>
                           <HugeiconsIcon icon={item.icon} className="size-4" />
                           {item.label}
-
-                          {item.status === "in-progress" && (
-                            <Tooltip>
-                              <TooltipTrigger
-                                render={
-                                  <HugeiconsIcon
-                                    icon={ConstructionIcon}
-                                    className="size-4 text-yellow-700 dark:text-yellow-400 ml-auto"
-                                    aria-label="In progress"
-                                  />
-                                }
-                              />
-                              <TooltipContent side="right">
-                                In progress
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
-
-                          {item.status === "not-started" && (
-                            <Tooltip>
-                              <TooltipTrigger
-                                render={
-                                  <HugeiconsIcon
-                                    icon={Alert02Icon}
-                                    className="size-4 text-red-700 dark:text-red-400 ml-auto"
-                                    aria-label="Not started"
-                                  />
-                                }
-                              />
-                              <TooltipContent side="right">
-                                Not started
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
-
-                          {item.status === "new" && (
-                            <Tooltip>
-                              <TooltipTrigger
-                                render={
-                                  <HugeiconsIcon
-                                    icon={SparklesIcon}
-                                    className="size-4 text-primary ml-auto"
-                                    aria-label="New"
-                                  />
-                                }
-                              />
-                              <TooltipContent side="right">
-                                New
-                              </TooltipContent>
-                            </Tooltip>
-                          )}
                         </Link>
                       }
                     />
@@ -255,6 +170,5 @@ export function AppSidebar() {
 
       <SidebarFooter />
     </Sidebar>
-    </TooltipProvider>
   )
 }

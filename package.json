@@ -9,7 +9,8 @@
     "check:write": "biome check --write .",
     "lint": "biome lint .",
     "format": "biome format --write .",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "test": "turbo test"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",

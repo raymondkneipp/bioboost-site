@@ -1,0 +1,138 @@
+import { formOptions, useForm } from "@tanstack/react-form"
+import { zodValidator } from "@tanstack/zod-form-adapter"
+import { Button } from "@workspace/ui/components/button"
+import * as React from "react"
+import { HeightCmField, HeightFtField, HeightInField } from "@/components/form/height-field"
+import { RadioGroup } from "@/components/form/radio-group"
+import { useSettings } from "@/contexts/settings"
+import { calculateIBW } from "@/calculators/ideal-body-weight/idealBodyWeight"
+import type { IBWFormula } from "@/calculators/ideal-body-weight/types"
+import { heightCmSchema, heightFtSchema, heightInSchema } from "@/lib/validations"
+import { feetInchesToCm } from "@/units/length"
+import { kgToPounds } from "@/units/mass"
+
+type EmptyNumber = "" | number
+function numVal(v: EmptyNumber): number {
+  return v === "" ? Number.NaN : v
+}
+
+type Sex = "male" | "female"
+
+const formulaLabels: Record<IBWFormula, string> = {
+  devine: "Devine",
+  robinson: "Robinson",
+  miller: "Miller",
+  hamwi: "Hamwi",
+}
+
+interface FormProps {
+  sex: Sex
+  formula: IBWFormula
+  onResult: (weightKg: number) => void
+}
+
+const metricFormOptions = formOptions({
+  validatorAdapter: zodValidator(),
+  defaultValues: { height: "" as EmptyNumber },
+})
+
+const imperialFormOptions = formOptions({
+  validatorAdapter: zodValidator(),
+  defaultValues: { heightFt: "" as EmptyNumber, heightIn: "" as EmptyNumber },
+})
+
+function MetricForm({ sex, formula, onResult }: FormProps) {
+  const form = useForm({
+    ...metricFormOptions,
+    onSubmit: ({ value }) => {
+      const { idealWeightKg } = calculateIBW({ sex, heightCm: numVal(value.height), formula })
+      onResult(idealWeightKg)
+    },
+  })
+  return (
+    <form onSubmit={(e) => { e.preventDefault(); e.stopPropagation(); form.handleSubmit() }} className="flex flex-col gap-4">
+      <form.Field name="height" validators={{ onChange: heightCmSchema }}>
+        {(field) => <HeightCmField field={field} />}
+      </form.Field>
+      <Button type="submit" className="self-start">Calculate</Button>
+    </form>
+  )
+}
+
+function ImperialForm({ sex, formula, onResult }: FormProps) {
+  const form = useForm({
+    ...imperialFormOptions,
+    onSubmit: ({ value }) => {
+      const heightCm = feetInchesToCm(numVal(value.heightFt), numVal(value.heightIn) || 0)
+      const { idealWeightKg } = calculateIBW({ sex, heightCm, formula })
+      onResult(idealWeightKg)
+    },
+  })
+  return (
+    <form onSubmit={(e) => { e.preventDefault(); e.stopPropagation(); form.handleSubmit() }} className="flex flex-col gap-4">
+      <div className="flex gap-3">
+        <form.Field name="heightFt" validators={{ onChange: heightFtSchema }}>
+          {(field) => <HeightFtField field={field} />}
+        </form.Field>
+        <form.Field name="heightIn" validators={{ onChange: heightInSchema }}>
+          {(field) => <HeightInField field={field} />}
+        </form.Field>
+      </div>
+      <Button type="submit" className="self-start">Calculate</Button>
+    </form>
+  )
+}
+
+export function IdealBodyWeightCalculator() {
+  const { units } = useSettings()
+  const [sex, setSex] = React.useState<Sex>("male")
+  const [formula, setFormula] = React.useState<IBWFormula>("devine")
+  const [result, setResult] = React.useState<number | null>(null)
+
+  React.useEffect(() => { setResult(null) }, [units])
+
+  const formProps: FormProps = { sex, formula, onResult: setResult }
+  const isMetric = units === "metric"
+
+  return (
+    <div className="not-prose flex flex-col gap-6 rounded-xl border p-6">
+      <div className="flex flex-col gap-4">
+        <RadioGroup
+          label="Sex"
+          name="ibw-sex"
+          value={sex}
+          options={[
+            { value: "male", label: "Male" },
+            { value: "female", label: "Female" },
+          ]}
+          onChange={setSex}
+        />
+        <RadioGroup
+          label="Formula"
+          name="ibw-formula"
+          value={formula}
+          options={(Object.keys(formulaLabels) as IBWFormula[]).map((f) => ({ value: f, label: formulaLabels[f] }))}
+          onChange={setFormula}
+        />
+      </div>
+
+      {isMetric
+        ? <MetricForm key={`metric-${sex}`} {...formProps} />
+        : <ImperialForm key={`imperial-${sex}`} {...formProps} />
+      }
+
+      {result !== null && (
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex flex-col rounded-lg bg-muted/50 px-4 py-3 text-center">
+            <span className="text-2xl font-bold tabular-nums">{result} kg</span>
+            <span className="text-xs text-muted-foreground">ideal weight</span>
+          </div>
+          <div className="flex flex-col rounded-lg bg-muted/50 px-4 py-3 text-center">
+            <span className="text-2xl font-bold tabular-nums">{Math.round(kgToPounds(result))} lb</span>
+            <span className="text-xs text-muted-foreground">ideal weight</span>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

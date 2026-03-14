@@ -1,15 +1,67 @@
 ---
-title: "Calories Burned"
-icon: "Target02Icon"
-summary: "Estimate the number of calories burned during various physical activities based on your weight and duration."
-status: "not-started"
+title: "Calories Burned Calculator"
+icon: "WorkoutSportIcon"
+summary: "Estimate calories burned during exercise based on your body weight, activity type, and duration. Uses MET (metabolic equivalent of task) values from research literature."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is a MET value?"
+    answer: "MET (metabolic equivalent of task) is a ratio of the rate of energy expenditure during an activity relative to resting. Walking at 3 mph has a MET of ~3.5, meaning it burns 3.5× more energy than sitting."
+  - question: "How accurate are calorie estimates?"
+    answer: "MET-based estimates have a margin of error of 10–20%. Individual factors like fitness level, efficiency, and body composition affect actual calorie burn. Wearables with heart rate tend to be more accurate."
+  - question: "Does fitness level affect calories burned?"
+    answer: "Yes. Fitter individuals are more efficient at movement, so they burn fewer calories for the same activity. However, they can sustain higher intensities, which compensates."
+  - question: "Do I burn more calories at higher body weight?"
+    answer: "Yes — the formula is directly proportional to body weight. A heavier person burns more calories doing the same activity for the same duration."
 ---
 
-# Calories Burned
+# Calories Burned Calculator
 
-Estimate the number of calories burned during various physical activities based on your weight and duration.
+Select an activity, enter your weight and duration to estimate calories burned using research-validated MET values.
 
-Coming soon.
+<CaloriesBurnedCalculator />
+
+## How It Works
+
+**Calories = MET × weight (kg) × duration (hours)**
+
+MET values come from the Compendium of Physical Activities, a research database developed at Arizona State University.
+
+## Sample MET Values
+
+<table>
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>MET</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Walking (3 mph)</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <td>Running (6 mph)</td>
+      <td>9.8</td>
+    </tr>
+    <tr>
+      <td>Cycling (moderate)</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <td>Swimming (moderate)</td>
+      <td>8.3</td>
+    </tr>
+    <tr>
+      <td>Strength training</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <td>HIIT</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <td>Yoga</td>
+      <td>2.5</td>
+    </tr>
+  </tbody>
+</table>

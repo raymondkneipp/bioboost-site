@@ -1,15 +1,71 @@
 ---
-title: "Wilks Score"
-icon: "DumbbellIcon"
-summary: "The Wilks score is a coefficient used to compare powerlifters of different body weights, enabling fair strength comparison."
-status: "not-started"
+title: "Wilks Score Calculator"
+icon: "Award01Icon"
+summary: "The Wilks score is a coefficient used to compare powerlifters across different body weights. It allows fair comparison of total lifted weight regardless of the lifter's size."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is a good Wilks score?"
+    answer: "300+ is novice to intermediate. 400+ is advanced. 500+ is elite/national-level. 600+ is world-class. Most competitive powerlifters score in the 350–450 range."
+  - question: "What is the Wilks formula?"
+    answer: "The Wilks score uses a polynomial formula with sex-specific coefficients to calculate a coefficient based on body weight, then multiplies by total lifted weight."
+  - question: "What lifts are included in the total?"
+    answer: "In powerlifting, total = squat + bench press + deadlift (S+B+D). You can also calculate Wilks for a single lift."
+  - question: "Is Wilks still used in powerlifting?"
+    answer: "Wilks was the standard for decades but is being replaced by newer formulas like IPF GL Points (Goodlift) and DOTS. However Wilks remains widely recognized and used."
 ---
 
-# Wilks Score
+# Wilks Score Calculator
 
-The Wilks score is a coefficient used to compare powerlifters of different body weights, enabling fair strength comparison.
+The Wilks coefficient was developed by Robert Wilks to allow powerlifters of different body weights to be fairly compared. A higher score means a stronger lifter relative to their size.
 
-Coming soon.
+<WilksCalculator />
+
+## The Wilks Formula
+
+**Wilks = Total Lifted × Coefficient(body weight)**
+
+The coefficient is derived from a polynomial equation with separate coefficients for male and female lifters:
+
+**Male coefficient = 500 / (a + b×x + c×x² + d×x³ + e×x⁴ + f×x⁵)**
+
+Where x = body weight in kg and the constants are:
+- a = −216.0475144
+- b = 16.2606339
+- c = −0.002388645
+- d = −0.00113732
+- e = 7.01863e−6
+- f = −1.291e−8
+
+Female coefficients differ accordingly.
+
+## Wilks Score Benchmarks
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Below 200</td>
+      <td>Beginner</td>
+    </tr>
+    <tr>
+      <td>200–300</td>
+      <td>Novice</td>
+    </tr>
+    <tr>
+      <td>300–400</td>
+      <td>Intermediate</td>
+    </tr>
+    <tr>
+      <td>400–500</td>
+      <td>Advanced</td>
+    </tr>
+    <tr>
+      <td>500+</td>
+      <td>Elite</td>
+    </tr>
+  </tbody>
+</table>

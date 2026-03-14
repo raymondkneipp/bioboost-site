@@ -1,15 +1,64 @@
 ---
-title: "Running Pace"
-icon: "FavouriteIcon"
-summary: "Calculate your running pace, finish time, or distance based on any two of these three variables."
-status: "not-started"
+title: "Running Pace Calculator"
+icon: "WorkoutRunIcon"
+summary: "Calculate your running pace, speed, and projected finish times. Enter your distance and total time to get your min/km, min/mile, km/h, and mph."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is running pace?"
+    answer: "Running pace is the time it takes to cover a set distance — usually expressed as minutes per kilometer (min/km) or minutes per mile (min/mi)."
+  - question: "What is a good running pace?"
+    answer: "A typical recreational runner averages 5–7 min/km (8–11 min/mi). Elite marathon runners run under 3:00/km. The best pace is simply an improvement over your own previous pace."
+  - question: "How do I convert min/km to km/h?"
+    answer: "Divide 60 by your pace in minutes per km. For example, 5:00/km = 60 / 5 = 12 km/h."
 ---
 
-# Running Pace
+# Running Pace Calculator
 
-Calculate your running pace, finish time, or distance based on any two of these three variables.
+Enter your distance and finish time to calculate your running pace and speed in all common units.
 
-Coming soon.
+<RunningPaceCalculator />
+
+## Pace vs Speed
+
+**Pace** measures how long it takes to cover one unit of distance (e.g., 5:00/km).
+
+**Speed** measures how much distance you cover per unit of time (e.g., 12 km/h).
+
+They are reciprocals of each other:
+
+**Speed (km/h) = 60 ÷ pace (min/km)**
+
+**Pace (min/km) = 60 ÷ speed (km/h)**
+
+## Common Race Paces
+
+<table>
+  <thead>
+    <tr>
+      <th>Race</th>
+      <th>Distance</th>
+      <th>Pace needed (sub-30 min 5K)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5K</td>
+      <td>5 km</td>
+      <td>5:59/km</td>
+    </tr>
+    <tr>
+      <td>10K</td>
+      <td>10 km</td>
+      <td>6:00/km for 1 hour</td>
+    </tr>
+    <tr>
+      <td>Half Marathon</td>
+      <td>21.1 km</td>
+      <td>5:41/km for 2 hours</td>
+    </tr>
+    <tr>
+      <td>Marathon</td>
+      <td>42.2 km</td>
+      <td>5:41/km for 4 hours</td>
+    </tr>
+  </tbody>
+</table>

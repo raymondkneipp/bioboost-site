@@ -1,15 +1,46 @@
 ---
 title: "Pace Converter"
-icon: "Exchange01Icon"
-summary: "Convert running pace between minutes per mile and minutes per kilometer."
-status: "not-started"
+icon: "StopWatchIcon"
+summary: "Convert running pace between min/km, min/mile, km/h, and mph instantly. Useful for comparing training plans and race paces across different unit systems."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "How do I convert min/km to km/h?"
+    answer: "Divide 60 by your pace in minutes per km. For example, 5:00/km = 60 ÷ 5 = 12 km/h."
+  - question: "How do I convert min/km to min/mile?"
+    answer: "Multiply min/km by 1.60934. For example, 5:00/km × 1.60934 = 8:03/mi."
+  - question: "What pace is a 4-minute mile?"
+    answer: "A 4-minute mile is 3:44 per km, or 15 mph / 24.1 km/h."
 ---
 
 # Pace Converter
 
-Convert running pace between minutes per mile and minutes per kilometer.
+Convert any running pace or speed into all four common units.
 
-Coming soon.
+<PaceConverter />
+
+## Common Race Paces
+
+<table>
+  <thead>
+    <tr>
+      <th>min/km</th>
+      <th>min/mi</th>
+      <th>km/h</th>
+      <th>mph</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>3:00</td><td>4:50</td><td>20.0</td><td>12.4</td></tr>
+    <tr><td>4:00</td><td>6:26</td><td>15.0</td><td>9.3</td></tr>
+    <tr><td>5:00</td><td>8:03</td><td>12.0</td><td>7.5</td></tr>
+    <tr><td>6:00</td><td>9:39</td><td>10.0</td><td>6.2</td></tr>
+    <tr><td>7:00</td><td>11:16</td><td>8.6</td><td>5.3</td></tr>
+    <tr><td>8:00</td><td>12:52</td><td>7.5</td><td>4.7</td></tr>
+  </tbody>
+</table>
+
+## Conversion Formulas
+
+- **min/km → min/mi:** × 1.60934
+- **km/h → mph:** ÷ 1.60934
+- **min/km → km/h:** 60 ÷ pace (decimal minutes)
+- **mph → min/mi:** 60 ÷ speed

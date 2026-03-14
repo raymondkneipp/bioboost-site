@@ -1,15 +1,67 @@
 ---
-title: "Target Heart Rate"
-icon: "FavouriteIcon"
-summary: "Calculate your target heart rate zones for different training intensities to optimize cardiovascular workouts."
-status: "not-started"
+title: "Target Heart Rate Calculator"
+icon: "HeartCheckIcon"
+summary: "Target heart rate zones tell you exactly how hard to push during a workout. This calculator uses the Karvonen method — which accounts for your resting heart rate — for more personalized zones."
 faqs:
-  - question: "Coming soon"
-    answer: "This calculator is coming soon."
+  - question: "What is the Karvonen method?"
+    answer: "The Karvonen method uses your heart rate reserve (max HR minus resting HR) to calculate more personalized training zones, accounting for individual fitness differences."
+  - question: "How do I measure my resting heart rate?"
+    answer: "Measure your resting heart rate first thing in the morning, before getting out of bed. Count beats for 60 seconds, or 30 seconds and multiply by 2."
+  - question: "What zone should I train in to burn fat?"
+    answer: "The fat-burn zone (60–70% of max HR) uses fat as the primary fuel source, but higher-intensity zones burn more total calories overall. The best zone depends on your goals and fitness level."
 ---
 
-# Target Heart Rate
+# Target Heart Rate Calculator
 
-Calculate your target heart rate zones for different training intensities to optimize cardiovascular workouts.
+Training in the right heart rate zone helps you achieve specific fitness goals — whether that's burning fat, building endurance, or improving speed. This calculator uses the **Karvonen method** to personalize zones based on your resting heart rate.
 
-Coming soon.
+<TargetHeartRateCalculator />
+
+## The Karvonen Method
+
+Unlike simple percentage-of-max-HR zones, Karvonen uses your heart rate reserve (HRR):
+
+**HRR = Max HR − Resting HR**
+
+**Target HR = Resting HR + (HRR × intensity %)**
+
+This accounts for individual fitness differences — a fit person with a low resting HR will have different zone targets than someone just starting out.
+
+## Training Zones
+
+<table>
+  <thead>
+    <tr>
+      <th>Zone</th>
+      <th>Intensity</th>
+      <th>Benefit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recovery</td>
+      <td>50–60%</td>
+      <td>Active recovery, reduce soreness</td>
+    </tr>
+    <tr>
+      <td>Fat Burn</td>
+      <td>60–70%</td>
+      <td>Fat oxidation, aerobic base</td>
+    </tr>
+    <tr>
+      <td>Aerobic</td>
+      <td>70–80%</td>
+      <td>Cardiovascular improvement</td>
+    </tr>
+    <tr>
+      <td>Anaerobic</td>
+      <td>80–90%</td>
+      <td>Lactate threshold, speed</td>
+    </tr>
+    <tr>
+      <td>Max Effort</td>
+      <td>90–100%</td>
+      <td>Peak performance, interval training</td>
+    </tr>
+  </tbody>
+</table>

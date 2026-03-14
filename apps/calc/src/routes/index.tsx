@@ -69,7 +69,7 @@ function App() {
       {groups.map((group) => (
         <section key={group.key} className="flex flex-col gap-3">
           <Link
-            to="/$group/"
+            to="/$group"
             params={{ group: group.key }}
             className="font-semibold text-sm hover:underline"
           >
